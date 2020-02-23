@@ -9,7 +9,11 @@ class Store {
     this.AppStore = new AppStore(this);
     this.AuthStore = new AuthStore(this);
     this.TaskStore = new TaskStore(this);
+
     axios.defaults.baseURL = API;
+    axios.defaults.validateStatus = status => {
+      return status === 422 || status === 403 || (status >= 200 && status < 300);
+    };
     this.onStart();
   }
 

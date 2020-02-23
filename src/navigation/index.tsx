@@ -15,7 +15,13 @@ const Navigation = ({AppStore}) => {
         {AppStore.isAuthorised ? (
           <Stack.Screen name="HomeScreen" component={HomeScreen} />
         ) : (
-          <Stack.Screen name="AuthScreen" component={AuthScreen} />
+          <Stack.Screen
+            name="Auth"
+            options={{
+              headerShown: false,
+            }}
+            component={AuthScreen}
+          />
         )}
       </Stack.Navigator>
     </NavigationContainer>
